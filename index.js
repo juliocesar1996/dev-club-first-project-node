@@ -32,8 +32,6 @@ const checkUserId = (request, response, next) => {
     request.userId = id
 
     next()
-
-
 }
 
 
@@ -61,18 +59,15 @@ app.put('/users/:id', checkUserId, (request, response) => {
 
      const updateUser = { id, name, age }
 
-    
     users[index] = updateUser
 
     return response.json(updateUser)
 })
 
-
-app.delete('/users:id', checkUserId, (request, response) => {
+app.delete('/users/:id', checkUserId, (request, response) => {
     
     const index = request.userIndex
     
- 
     users.splice(index, 1)
 
     return response.status(204).json()
